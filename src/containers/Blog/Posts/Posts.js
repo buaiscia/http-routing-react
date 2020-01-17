@@ -13,6 +13,8 @@ class Posts extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props);
+        
         axios.get('/posts') // executed async, create promise
         .then((response) => {
             const posts = response.data.slice(0, 4);
@@ -43,6 +45,7 @@ class Posts extends Component {
                 key={post.id}
                 title={post.title}
                 author={post.author}
+                // {...this.props}
                 clicked={() => this.postSelectedHandler(post.id)}/>
             })
         }
